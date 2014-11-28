@@ -3,7 +3,7 @@ body {
     padding: 0;
 }
 
-html, body, .tab_content {
+html, body, .tabContent {
     height: 100%;
 }
 
@@ -33,7 +33,7 @@ p {
     font-size: 17px;
 }
 
-.nav li.active {
+.nav li.visible {
     top: 1px;
     background-color: #f1f0ee;
     position: relative;
@@ -44,18 +44,18 @@ p {
     cursor: pointer;
 }
 
-.tab_content {
+.tabContent {
     border: 1px solid #c9c3ba;
     /*padding: 5px;*/
     background-color: #f1f0ee;
     display: none;
 }
 
-.tab_content.active {
+.visible {
     display: block;
 }
 
-.img {
+.centerImg {
     text-align: center;
 }
 
@@ -66,7 +66,7 @@ img {
     height: 333px;
 }
 
-div.toggle {
+.toggle {
     position: relative;
     z-index: 10;
     background: #3f3c38 bottom;
@@ -82,15 +82,11 @@ div.toggle {
     -webkit-transition: height ease-in 500ms;
 }
 
-div.toggle:hover, div.toggle_active {
+.toggle:hover, .toggleActive {
     background-color: #6d493a;
     border-top: 1px solid #a06b55;
 }
 
-.content {
+.hidden {
     display: none;
-}
-
-.content_active {
-    display: block;
 }

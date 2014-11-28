@@ -16,14 +16,16 @@ var tabsModule = {
                 var target = e.target || e.srcElement;
                 for (var j = 0; j < tabItems.length; j++) {
                     if (document.getElementById("tab" + j) == target) {
-                        target.classList.add("active");
-                        tabsModule.addToClassList("tab_content" + j, "active");
-                        tabsModule.addToClassList("toggle" + j, "toggle_active");
-                        tabsModule.addToClassList("content" + j, "content_active");
+                        target.classList.add("visible");
+                        tabsModule.addToClassList("tab_content" + j, "visible");
+                        tabsModule.addToClassList("toggle" + j, "toggleActive");
+                        tabsModule.addToClassList("content" + j, "visible");
                     }
                     else {
-                        tabsModule.removeFromClassList("tab" + j, "active");
-                        tabsModule.removeFromClassList("tab_content" + j, "active");
+                        tabsModule.removeFromClassList("tab" + j, "visible");
+                        tabsModule.removeFromClassList("tab_content" + j, "visible");
+                        tabsModule.removeFromClassList("toggle" + j, "toggleActive");
+                        tabsModule.removeFromClassList("content" + j, "visible");
                     }
                 }
             });
@@ -38,12 +40,12 @@ var tabsModule = {
                 var target = e.target || e.srcElement;
                 for (var j = 0; j < toggleItems.length; j++) {
                     if (document.getElementById("toggle" + j) == target) {
-                        target.classList.contains("toggle_active") ? target.classList.remove("toggle_active") : target.classList.add("toggle_active");
-                        document.getElementById("content" + j).classList.contains("content_active") ? tabsModule.removeFromClassList("content" + j, "content_active") : tabsModule.addToClassList("content" + j, "content_active");
+                        target.classList.contains("toggleActive") ? target.classList.remove("toggleActive") : target.classList.add("toggleActive");
+                        !document.getElementById("content" + j).classList.contains("hidden") ? tabsModule.addToClassList("content" + j, "hidden") : tabsModule.removeFromClassList("content" + j, "hidden");
                     }
                     else {
-                        tabsModule.removeFromClassList("toggle" + j, "toggle_active");
-                        tabsModule.removeFromClassList("content" + j, "content_active");
+                        tabsModule.removeFromClassList("toggle" + j, "toggleActive");
+                        tabsModule.addToClassList("content" + j, "hidden");
                     }
                 }
             })
